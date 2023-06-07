@@ -3,23 +3,23 @@ import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, si
 import { getFirestore } from "@firebase/firestore"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBkmFV9iwDeG_ym2zKwS1_4EpLqF8UB6JQ",
-  authDomain: "meet-milk.firebaseapp.com",
-  projectId: "meet-milk",
-  storageBucket: "meet-milk.appspot.com",
-  messagingSenderId: "355276732380",
-  appId: "1:355276732380:web:1b31dd6ee2b4ba54834119"
+  apiKey: "AIzaSyBSDxsYmeuTjXJO9Ors3jjxyjiwLelovqg",
+  authDomain: "meat-milk-2dcd3.firebaseapp.com",
+  projectId: "meat-milk-2dcd3",
+  storageBucket: "meat-milk-2dcd3.appspot.com",
+  messagingSenderId: "5015640617",
+  appId: "1:5015640617:web:1a210affd4910aa93c5a38"
 };
 
-initializeApp(firebaseConfig)
-export const auth = getAuth()
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth();
 
-export const register = (email: string, password: string): any => {
-  createUserWithEmailAndPassword(auth, email, password)
-}
-export const login = (email: string, password: string) => {
-  signInWithEmailAndPassword(auth, email, password)
-}
-export const logout = () => signOut(auth)
+export const register = (email: string, password: string) =>
+  createUserWithEmailAndPassword(auth, email, password);
 
-export const db = getFirestore()
+export const login = (email: string, password: string) =>
+  signInWithEmailAndPassword(auth, email, password);
+
+export const logout = () => signOut(auth);
+
+export const db = getFirestore();

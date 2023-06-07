@@ -12,17 +12,21 @@ interface IData {
 }
 
 const Auth: FC = () => {
-  const { isLoading, login, register } = useAuth()
-  const [data, setData] = useState<IData>({} as IData)
-  const [isReg, setIsReg] = useState(false)
+  const {isLoading, login, register} = useAuth();
+  const [data, setData] = useState({} as IData);
+  const [isReg, setIsReg] = useState(false);
 
-  const authHandler = async  () => {
-    const {email, password} = data
+  const authHandler = async () => {
+    const {email, password} = data;
 
-    if (isReg) await register(email, password)
-    else await login(email, password)
-    setData({} as IData)
-  }
+    if (isReg) {
+      await register(email, password);
+    } else {
+      await login(email, password);
+    }
+    setData({} as IData);
+  };
+  
   return (
     <View style={globalStyle.styleCenter}>
       <View style={styles.authContainer}>
@@ -30,10 +34,10 @@ const Auth: FC = () => {
           <Text style={styles.authTitle}>
             {isReg ? 'Каттоо' : 'Кирүү'}
           </Text>
-          {isLoading ? <Loader /> : <>
+          {isLoading ? (<Loader />) : (<>
           <Field val={data.email} placeholder="Жазыңыз email" onChange={val => setData({...data, email: val})}/>
           <Field isSecure={true} val={data.password} placeholder="Жазыңыз сырсөз" onChange={val => setData({...data, password: val}) }/>
-          </>
+          </>)
           }
           <Button onPress={authHandler} title='Алга'/>
           <Pressable onPress={() => setIsReg(!isReg)}>
@@ -44,7 +48,7 @@ const Auth: FC = () => {
         </View>
       </View>
     </View>
-  )
+    )
 }
 
 const styles = StyleSheet.create({
@@ -77,3 +81,38 @@ const styles = StyleSheet.create({
 
 
 export default Auth
+
+
+// import React, {FC, useState} from 'react';
+// import {Pressable, Text, View} from 'react-native';
+// import styles from './styles';
+// import {useAuth} from '../../../hooks/useAuth';
+// import Loader from '../../ui/Loader';
+// import Field from '../../ui/Field';
+// import {Button} from '../../ui/Button';
+
+// interface IData {
+//   email: string;
+//   password: string;
+// }
+
+// const Auth: FC = () => {
+//   const {isLoading, login, register} = useAuth();
+
+//   const [data, setData] = useState({} as IData);
+//   const [isReg, setIsReg] = useState(false);
+
+//   const authHandler = async () => {
+//     const {email, password} = data;
+//     console.log(data);
+
+//     if (isReg) {
+//       await register(email, password);
+//     } else {
+//       await login(email, password);
+//     }
+
+//     setData({} as IData);
+//   };
+
+  

@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 
 
 interface ILayout {
-  children: React.ReactElement
+  children: React.ReactNode
   isScrollView?: boolean
 }
 export const globalStyle = StyleSheet.create({
