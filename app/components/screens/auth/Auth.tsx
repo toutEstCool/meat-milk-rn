@@ -77,42 +77,8 @@ const styles = StyleSheet.create({
     fontSize: 14
   }
 })
-
-
-
 export default Auth
 
 
-// import React, {FC, useState} from 'react';
-// import {Pressable, Text, View} from 'react-native';
-// import styles from './styles';
-// import {useAuth} from '../../../hooks/useAuth';
-// import Loader from '../../ui/Loader';
-// import Field from '../../ui/Field';
-// import {Button} from '../../ui/Button';
-
-// interface IData {
-//   email: string;
-//   password: string;
-// }
-
-// const Auth: FC = () => {
-//   const {isLoading, login, register} = useAuth();
-
-//   const [data, setData] = useState({} as IData);
-//   const [isReg, setIsReg] = useState(false);
-
-//   const authHandler = async () => {
-//     const {email, password} = data;
-//     console.log(data);
-
-//     if (isReg) {
-//       await register(email, password);
-//     } else {
-//       await login(email, password);
-//     }
-
-//     setData({} as IData);
-//   };
 
   

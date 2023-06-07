@@ -1,4 +1,4 @@
-import { View, ScrollView, StyleSheet } from 'react-native'
+import { View, ScrollView, StyleSheet, SafeAreaView } from 'react-native'
 import React, { FC } from 'react'
 
 
@@ -11,20 +11,21 @@ export const globalStyle = StyleSheet.create({
     height: '100%',
     width: '100%',
     backgroundColor: 'white',
-    paddingTop: 30
   }
 })
 
 const Layout: FC<ILayout> = ({ children, isScrollView = true}) => {
 
   return (
-    <View style={globalStyle.styleCenter}> 
-      {
-        isScrollView ? 
-        <ScrollView>{children}</ScrollView>
-        : children
-      }
-    </View>
+    <SafeAreaView>
+      <View style={globalStyle.styleCenter}> 
+        {
+          isScrollView ? 
+          <ScrollView>{children}</ScrollView>
+          : children
+        }
+      </View>
+    </SafeAreaView>
   )
 }
 

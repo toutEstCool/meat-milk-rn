@@ -4,6 +4,7 @@ import { FC } from "react";
 import { useAuth } from "../hooks/useAuth";
 import Auth from "../components/screens/auth/Auth";
 import Home from "../components/screens/home/Home";
+import Profile from "../components/screens/profile/Profile";
 
 const Stack = createNativeStackNavigator()
 
@@ -15,7 +16,7 @@ const Navigation: FC = () => {
         { user ? 
         (<>
         <Stack.Screen name="Home" component={Home}></Stack.Screen>
-        <Stack.Screen name="Profile" component={Home}></Stack.Screen>
+        <Stack.Screen name="Profile" component={Profile}></Stack.Screen>
         <Stack.Screen name="Payments" component={Home}></Stack.Screen>
         <Stack.Screen name="Services" component={Home}></Stack.Screen>
         <Stack.Screen name="Support" component={Home}></Stack.Screen>
