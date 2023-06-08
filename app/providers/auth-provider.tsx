@@ -1,8 +1,8 @@
-import React, {createContext, FC, useEffect, useMemo, useState} from 'react';
-import {onAuthStateChanged, User} from 'firebase/auth';
-import {auth, db, login, logout, register} from '../firebase';
-import {addDoc, collection} from 'firebase/firestore';
-import {Alert} from 'react-native';
+import React, { createContext, FC, useEffect, useMemo, useState } from 'react';
+import { onAuthStateChanged, User } from 'firebase/auth';
+import { auth, db, login, logout, register } from '../firebase';
+import { addDoc, collection } from 'firebase/firestore';
+import { Alert } from 'react-native';
 
 interface IContext {
   user: User | null;
@@ -23,8 +23,6 @@ export const AuthProvider: FC<{children: any}> = ({children}) => {
     setIsLoading(true);
     try {
       const {user} = await register(email, password);
-      console.log(user);
-
       await addDoc(collection(db, 'users'), {
         _id: user.uid,
         displayName: 'No name',

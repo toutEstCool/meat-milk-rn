@@ -1,5 +1,5 @@
+import Navigation from './app/navigation/Navigation';
 import { AuthProvider } from './app/providers/auth-provider';
-import Navigation from './app/navigation/navigation';
 import { LogBox } from 'react-native';
 
 export default function App() {

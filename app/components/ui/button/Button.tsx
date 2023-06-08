@@ -8,7 +8,7 @@ interface IButton {
 const Button: FC<IButton> = ({
   onPress,
   title,
-  colors = ['background-color: rgb(253 224 71)', '#fbbf24']
+  colors = ['background-color: #6bff86', '#6bff86']
 }) => {
   return (
     <TouchableHighlight style={styles.button} onPress={onPress} underlayColor={colors[1]}>
@@ -19,8 +19,7 @@ const Button: FC<IButton> = ({
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: 'rgb(253 224 71)',
-    color: 'rgb(31 41 55)',
+    backgroundColor: '#6bffd0',
     borderRadius: 12,
     width: '100%',
     marginTop: 16,
@@ -29,7 +28,9 @@ const styles = StyleSheet.create({
     paddingBottom: 12
   },
   buttonText: {
-    textAlign: 'center'
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: '600',
   }
 })
 

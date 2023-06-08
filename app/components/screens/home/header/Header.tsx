@@ -4,18 +4,21 @@ import Space from '../../../ui/space/Space'
 import Avatar from '../../../ui/avatar/Avatar'
 import { Entypo } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
+import { useProfile } from '../../../../hooks/useProfile'
+import Loader from '../../../ui/loader/Loader'
 
 const Header: FC = () => {
   const { navigate } = useNavigation()
+  const { isLoading, name } = useProfile()
 
-  return (
+  return isLoading ? (<Loader />) : (
     <Space>
-      <Avatar name={'Danil'}/>
+      <Avatar name={name}/>
       <TouchableOpacity 
         style={{flexDirection: 'row', alignItems: 'center'}}
         onPress={() => navigate('Profile')}
       >
-        <Text style={styles.nameText}>Danil</Text>
+        <Text style={styles.nameText}>{name}</Text>
         <Entypo name='chevron-small-right' size={28} style={styles.arrowEntypo} />
       </TouchableOpacity>
     </Space>
