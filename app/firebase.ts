@@ -22,4 +22,4 @@ export const login = (email: string, password: string) =>
 
 export const logout = () => signOut(auth);
 
-export const db = getFirestore();
+export const db = getFirestore(app);
